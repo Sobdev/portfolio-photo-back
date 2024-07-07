@@ -5,6 +5,7 @@ const photoSchema = new Schema({
     title: String,
     description: String,
     url: String,
+    collection: String,
     date: { type: Date, default: Date.now }
 });
 

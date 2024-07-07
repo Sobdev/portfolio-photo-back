@@ -1,18 +1,16 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 5005
 
-mongoose.connect('mongodb://localhost/my-portfolio', {
+mongoose.connect('mongodb://localhost:27017/miki-portfolio', {
     useNewUrlParser: true,
     useUnifiedTopology: true
-})
+});
 
 app.use(express.json())
 
-const photosRouter = require('./routes/photos')
+const photosRouter = require('./routes/photos.routes')
 app.use('/photos', photosRouter)
 
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`)
-})
+module.exports = app
